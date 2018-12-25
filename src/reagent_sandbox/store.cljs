@@ -13,7 +13,8 @@
                         {:active-page (:main constants/pages)}}))
 
 (def stored-state (local-storage
-                   (r/atom {:api-url ""})))
+                   (r/atom {:api-url ""})
+                   :stored-state))
 
 (def search-input-cursor (r/cursor app-state [:form-state :input-field]))
 (def submit-form-cursor (r/cursor app-state [:form-state :submitting-form]))

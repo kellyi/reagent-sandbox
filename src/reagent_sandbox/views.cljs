@@ -29,15 +29,40 @@
    [:p.empty-title.h5 "No data to display"]
    [:p.empty-subtitle "Try searching for some data"]])
 
+(defn attributes-table
+  []
+  (let [attributes (into (sorted-map)
+                         (dissoc (get @store/data-cursor "Parcel")
+                                 "Shape" "SimpleShape" "BrtWebsite"))
+        create-row (fn [[attr val]]
+                     ^{:key attr} [:tr
+                                   [:td attr]
+                                   [:td val]])]
+    [:aside.table-container
+      [:table.table.attribute-table
+        [:thead
+          [:tr
+          [:th "Attribute"]
+          [:th "Value"]]]
+       [:tbody
+        (doall
+         (map create-row attributes))]]]))
+
+(defn reagent-sandbox-map
+  []
+  [:div.map-container])
+
 (defn main
   []
-  (cond
-    (nil? @store/data-cursor) [no-data]
-    :else [:h2 "main"]))
+  [:div.main-container
+   [reagent-sandbox-map]
+   (cond
+     (nil? @store/data-cursor) [no-data]
+     :else [attributes-table])])
 
 (defn settings
   []
-  [:div.settings-form-container
+  [:div.settings-form-container.p-2
    [:h2.settings-form-header "Settings"]
    [:div.form-group.settings-form-group
     [:label.form-label {:for "api-url-input"} "API URL"]

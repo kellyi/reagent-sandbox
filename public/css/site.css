@@ -3,11 +3,27 @@
     width: 100vw;
 }
 
+.main-container {
+    display: flex;
+}
+
+.map-container {
+    width: 60vw;
+}
+
+.table-container {
+    width: 40vw;
+}
+
+.no-data {
+    width: 40vw;
+    height: 100vh;
+}
+
 .settings-form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 3rem;
 }
 
 .settings-form-header {
@@ -18,7 +34,3 @@
     width: 60vw;
 }
 
-.no-data {
-    height: 100vh;
-    width: 100vw;
-}

@@ -21,9 +21,9 @@
 (defn complete-submit-form
   [data]
   (do
-    (println data)
+    (println (:Parcel data))
     (reset! store/submit-form-cursor false)
-    (reset! store/data-cursor data)))
+    (reset! store/data-cursor (js->clj data))))
 
 (defn fail-submit-form
   [err]
@@ -39,6 +39,7 @@
       (reset-data-error)
       (reset! store/submit-form-cursor true)
       (GET api-url {:format :json
+                    :response-format :json
                     :handler complete-submit-form
                     :error-handler fail-submit-form}))))
 
