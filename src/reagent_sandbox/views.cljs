@@ -3,11 +3,12 @@
    [reagent.core :as r]
    [reagent-sandbox.actions :as actions]
    [reagent-sandbox.constants :as constants]
-   [reagent-sandbox.store :as store]))
+   [reagent-sandbox.store :as store]
+   [reagent-sandbox.leaflet-map :as leaflet-map]))
 
 (defn navigation-bar
   []
-  [:header.navbar.bg-primary.p-2
+  [:header.navbar.bg-primary.p-2.navigation-bar
    [:section.navbar-section
     [:button.btn.btn-link.text-secondary.m-1
      {:on-click actions/make-main-page-active}
@@ -38,7 +39,7 @@
                      ^{:key attr} [:tr
                                    [:td attr]
                                    [:td val]])]
-    [:aside.table-container
+    [:aside.table-container.p-2
       [:table.table.attribute-table
         [:thead
           [:tr
@@ -48,17 +49,14 @@
         (doall
          (map create-row attributes))]]]))
 
-(defn reagent-sandbox-map
-  []
-  [:div.map-container])
-
 (defn main
   []
   [:div.main-container
-   [reagent-sandbox-map]
-   (cond
-     (nil? @store/data-cursor) [no-data]
-     :else [attributes-table])])
+   [leaflet-map/leaflet-map {:parcel-data @store/data-cursor}]
+   [:div.sidebar-container
+    (cond
+      (nil? @store/data-cursor) [no-data]
+      :else [attributes-table])]])
 
 (defn settings
   []

@@ -21,7 +21,6 @@
 (defn complete-submit-form
   [data]
   (do
-    (println (:Parcel data))
     (reset! store/submit-form-cursor false)
     (reset! store/data-cursor (js->clj data))))
 

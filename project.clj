@@ -34,6 +34,7 @@
                          :asset-path   "js/out"
                          :source-map true
                          :optimizations :none
+                         :externs ["externs.js"]
                          :pretty-print  true}
                         :figwheel
                         {:on-jsload "reagent-sandbox.core/mount-root"
@@ -45,7 +46,7 @@
                          :output-dir "public/js/release"
                          :asset-path   "js/out"
                          :optimizations :advanced
-                         :source-map "public/js/app.js.map"
+                         :externs ["externs.js"]
                          :pretty-print false}}}}
 
   :aliases {"package" ["do" "clean" ["cljsbuild" "once" "release"]]}

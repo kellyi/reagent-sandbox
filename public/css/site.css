@@ -3,21 +3,33 @@
     width: 100vw;
 }
 
+.navigation-bar {
+    height: 5vh;
+    align-content: center;
+}
+
 .main-container {
     display: flex;
+    height: 95vh;
 }
 
 .map-container {
     width: 60vw;
+    height: 100%;
+}
+
+.sidebar-container {
+    height: 95vh;
+    width: 40vw;
 }
 
 .table-container {
-    width: 40vw;
+    height: 100%;
+    overflow-y: scroll;
 }
 
 .no-data {
-    width: 40vw;
-    height: 100vh;
+    height: 100%;
 }
 
 .settings-form-container {
