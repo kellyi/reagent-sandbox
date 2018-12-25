@@ -7,6 +7,7 @@
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [org.clojure/clojurescript "1.10.439"]
                  [reagent "0.8.1"]
+                 [alandipert/storage-atom "1.2.4"]
                  [cljs-ajax "0.8.0"]]
 
   :plugins [[lein-cljsbuild "1.1.5"]
