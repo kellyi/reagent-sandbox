@@ -22,3 +22,9 @@
 (def error-cursor (r/cursor app-state [:form-state :error-message]))
 (def active-page-cursor (r/cursor app-state [:navigaation :active-page]))
 (def api-url-cursor (r/cursor stored-state [:api-url]))
+
+;; logger
+(defonce logger
+  (cond
+    constants/debug? (r/track! (.dir js/console (clj->js @app-state)))
+    :else nil))
