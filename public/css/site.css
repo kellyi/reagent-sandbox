@@ -4,13 +4,13 @@
 }
 
 .navigation-bar {
-    height: 5vh;
+    height: 55px;
     align-content: center;
 }
 
 .main-container {
     display: flex;
-    height: 95vh;
+    height: calc(100vh - 55px);
 }
 
 .map-container {
@@ -19,7 +19,7 @@
 }
 
 .sidebar-container {
-    height: 95vh;
+    height: calc(100vh - 55px);
     width: 40vw;
 }
 
